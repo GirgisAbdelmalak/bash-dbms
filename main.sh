@@ -6,7 +6,7 @@ select var in "${databaseManipulation[@]}"; do
             source $scriptFilesLocation/databaseManipulation/create.sh
             ;;
         "Drop Database")
-            source $scriptFilesLocation/databaseManipulation/create.sh
+            source $scriptFilesLocation/databaseManipulation/drop.sh
             ;;
         "List Databases")
             source $scriptFilesLocation/databaseManipulation/list.sh
