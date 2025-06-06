@@ -1,17 +1,18 @@
+scriptFilesLocation="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 databaseManipulation=("Create Database" "Drop Database" "List Databases" "Connect to Database" "Exit")
 select var in "${databaseManipulation[@]}"; do
     case $var in
         "Create Database")
-            source databseManipulation/create.sh
+            source $scriptFilesLocation/databaseManipulation/create.sh
             ;;
         "Drop Database")
-            source databseManipulation/create.sh
+            source $scriptFilesLocation/databaseManipulation/create.sh
             ;;
         "List Databases")
-            source databseManipulation/list.sh
+            source $scriptFilesLocation/databaseManipulation/list.sh
             ;;
         "Connect to Database")
-            source databseManipulation/connect.sh
+            source $scriptFilesLocation/databaseManipulation/connect.sh
             ;;
         "Exit")
             echo "Exiting..."
