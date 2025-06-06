@@ -2,12 +2,16 @@ databaseManipulation=("Create Database" "Drop Database" "List Databases" "Connec
 select var in "${databaseManipulation[@]}"; do
     case $var in
         "Create Database")
+            source databseManipulation/create.sh
             ;;
         "Drop Database")
+            source databseManipulation/create.sh
             ;;
         "List Databases")
+            source databseManipulation/list.sh
             ;;
         "Connect to Database")
+            source databseManipulation/connect.sh
             ;;
         "Exit")
             echo "Exiting..."
