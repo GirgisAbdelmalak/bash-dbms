@@ -1,6 +1,6 @@
 tableMenu=("Create table" "List all tables" "Drop table" "Insert into table" "Select from table" "Delete from table" "Update table" "Exit")
-operationFlag=true
-while [[ operationFlag -eq true ]];
+
+while true 
 do
     echo "Choose a table operation:"
     select option in "${tableMenu[@]}"
