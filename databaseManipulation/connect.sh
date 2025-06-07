@@ -15,6 +15,7 @@ select dbName in "${databases[@]}"; do
     if [[ -n "$dbName" ]]
     then
         cd "$dbName" 
+        break
     else
         echo "Invalid selection. Please try again."
     fi
