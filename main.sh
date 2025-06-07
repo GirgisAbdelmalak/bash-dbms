@@ -1,4 +1,4 @@
-scriptFilesLocation="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+#! /usr/bin/bash
 databaseManipulation=("Create Database" "Drop Database" "List Databases" "Connect to Database" "Exit")
 select var in "${databaseManipulation[@]}"; do
     case $var in
