@@ -1,10 +1,12 @@
-#! /usr/bin/bash
-current_directory=$PWD
-if [[ -d $current_directory/DB ]]
-then 
-    cd $current_directory/DB
-else 
-    mkdir $current_directory/DB
-    cd $current_directory/DB
+#!/usr/bin/bash
+currentLocation=$PWD
+scriptFilesLocation="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [[ -d "$currentLocation/DB" ]]; then
+    cd "$currentLocation/DB"
+else
+    mkdir "$currentLocation/DB"
+    cd "$currentLocation/DB"
 fi
-source main.sh
+
+source "$scriptFilesLocation/main.sh"
