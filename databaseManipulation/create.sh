@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 
-scriptFilesLocation="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 while true; do
     read -p "Enter the name of the database: " dbName
