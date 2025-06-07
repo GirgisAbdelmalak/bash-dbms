@@ -14,7 +14,8 @@ echo "Select a database to connect to:"
 select dbName in "${databases[@]}"; do
     if [[ -n "$dbName" ]]
     then
-        cd "$dbName" 
+        cd "$dbName" || { echo "Failed to change directory to $dbName"; exit 1; }
+        break
     else
         echo "Invalid selection. Please try again."
     fi
