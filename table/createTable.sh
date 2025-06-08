@@ -29,8 +29,8 @@ while true; do
         break
     done
 
-    declare -a fields
-    declare -a types
+    declare -a fields=()
+    declare -a types=()
     pk_set=0
     pk_field=""
 
@@ -39,6 +39,18 @@ while true; do
             read -p "Enter name of field #$i: " field_name
             if [[ ! $field_name =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]]; then
                 echo "Invalid field name. Must start with a letter or underscore and contain only letters, numbers, or underscores."
+                continue
+            fi
+
+            duplicate=0
+            for f in "${fields[@]}"; do
+                if [[ "$f" == "$field_name" ]]; then
+                    duplicate=1
+                    break
+                fi
+            done
+            if [[ $duplicate -eq 1 ]]; then
+                echo "Field name '$field_name' already used, please enter a unique name."
                 continue
             fi
             break
@@ -80,16 +92,18 @@ while true; do
         types+=("$dtype")
     done
 
+    > "$table_name"
+
     IFS=":"; echo "${fields[*]}" > "$table_name"
 
-    > "$table_name"_meta
+    > "${table_name}_meta"
     for idx in "${!fields[@]}"; do
         field="${fields[$idx]}"
         type="${types[$idx]}"
         if [[ "$field" == "$pk_field" ]]; then
-            echo "$field:$type:pk" >> "$table_name"_meta
+            echo "$field:$type:pk" >> "${table_name}_meta"
         else
-            echo "$field:$type" >> "$table_name"_meta
+            echo "$field:$type" >> "${table_name}_meta"
         fi
     done
 
