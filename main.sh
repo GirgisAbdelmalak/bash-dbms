@@ -1,4 +1,3 @@
-#! /usr/bin/bash
 databaseManipulation=("Create Database" "Drop Database" "List Databases" "Connect to Database" "Exit")
 select var in "${databaseManipulation[@]}"; do
     case $var in
